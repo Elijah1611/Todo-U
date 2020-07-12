@@ -4,6 +4,14 @@ const selectAll = selector => document.querySelectorAll(selector);
 const form = select("form");
 const ul = select("ul");
 
+if (!localStorage.getItem("todos")) {
+	console.log("running ");
+	localStorage.setItem(
+		"todos",
+		JSON.stringify([{ task: "Add a todo", isCompleted: false }]),
+	);
+}
+
 let todos = JSON.parse(localStorage.getItem("todos"));
 
 // RENDER TODOS
