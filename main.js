@@ -10,13 +10,16 @@ let todos = JSON.parse(localStorage.getItem("todos"));
 
 const makeTodoElement = (task, completed) => {
 	const newTodo = document.createElement("li");
+	const todoTextSpan = document.createElement("span");
 	const newDeleteBtn = document.createElement("button");
-	newDeleteBtn.textContent = "❌";
-	newTodo.innerText = task;
+	todoTextSpan.classList.add("todoText");
+	newDeleteBtn.innerText = "-";
+	todoTextSpan.innerText = task;
+	newTodo.appendChild(todoTextSpan);
 	newTodo.appendChild(newDeleteBtn);
 
 	if (completed) {
-		newTodo.classList.add("completed");
+		todoTextSpan.classList.add("completed");
 	}
 
 	return newTodo;
@@ -45,9 +48,9 @@ form.addEventListener("submit", e => {
 // COMPLETE TODO
 
 ul.addEventListener("click", e => {
-	if (e.target.tagName === "LI") {
+	if (e.target.tagName === "SPAN") {
 		e.target.classList.toggle("completed");
-		const todoText = e.target.innerText.slice(0, e.target.innerText.length - 1);
+		const todoText = e.target.innerText;
 
 		for (const key in todos) {
 			if (todos[key].task === todoText) {
@@ -62,7 +65,7 @@ ul.addEventListener("click", e => {
 // REMOVE TODO
 
 const removeTodo = todo => {
-	const todoText = todo.innerText.slice(0, todo.innerText.length - 1);
+	const todoText = todo.children[0].innerText;
 	return todos.filter(t => t.task !== todoText);
 };
 

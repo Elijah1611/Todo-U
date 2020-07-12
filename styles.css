@@ -1,7 +1,117 @@
-.completed {
-	text-decoration: line-through;
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	/* background: linear-gradient(45deg, #ece9e6, #ffffff); */
+	background-color: #daafff;
+	height: 100vh;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 50px 0;
 }
 
 ul li {
 	user-select: none;
+}
+
+ul {
+	margin: 0 auto;
+	max-width: 800px;
+	min-height: 800px;
+	border-radius: 20px;
+	box-shadow: 10px 10px 55px -15px rgba(0, 0, 0, 0.66);
+	padding-top: 40px;
+	margin-bottom: 50px;
+	background: white;
+}
+
+li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	list-style: none;
+	margin: 0 auto;
+	color: white;
+	font-size: 2rem;
+	width: 90%;
+	height: 60px;
+	padding-left: 10px;
+	margin-bottom: 40px;
+	border-radius: 20px 50px 50px 20px;
+	background: linear-gradient(45deg, #6a3093, #a044ff);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+li button {
+	width: 70px;
+	height: 70px;
+	border: none;
+	border-radius: 50%;
+	font-size: 1.8rem;
+	color: white;
+	background: linear-gradient(45deg, #6a3093, #a044ff);
+	transition: all 0.3s;
+}
+
+li button:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+	background: linear-gradient(180deg, #ed213a, #ca3a2a);
+}
+
+.completed {
+	text-decoration: line-through;
+}
+
+.todoText {
+	cursor: pointer;
+}
+
+.addBtn {
+	width: 80px;
+	height: 80px;
+	font-size: 3rem;
+	color: white;
+	background: linear-gradient(45deg, #8e2de2, #4a00e0);
+	border: none;
+	border-radius: 50%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	transition: all 0.3s;
+}
+
+.addBtn:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+	background: linear-gradient(45deg, #9338e2, #540fdf);
+}
+
+.taskInput {
+	width: 500px;
+	height: 50px;
+	border: none;
+	margin-right: 20px;
+	border-radius: 50px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	padding: 20px;
+	font-size: 1.4rem;
+	font-weight: bold;
+	color: #6a3093;
+}
+
+.taskInput:focus {
+	border: none;
+	outline: none;
 }
