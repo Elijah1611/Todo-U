@@ -29,6 +29,26 @@ for (const todo of todos) {
 	ul.appendChild(makeTodoElement(todo.task, todo.isCompleted));
 }
 
+// PROGRESS SETUP
+
+const progressBar = select(".bar");
+const progressTracker = select(".progressTracker");
+
+// PROGRESS
+
+const updateProgress = todoNodeList => {
+	let numOfCompleted = 0;
+	for (const todo of todoNodeList) {
+		if (todo.classList.contains("completed")) numOfCompleted += 1;
+	}
+	const percent = numOfCompleted / todoNodeList.length;
+	const progressStatus = percent * 100;
+	progressBar.style.width = `${progressStatus}%`;
+	progressTracker.innerText = `${numOfCompleted} / ${todoNodeList.length}`;
+};
+
+updateProgress(selectAll(".todoText"));
+
 // ADD TODO
 
 form.addEventListener("submit", e => {
@@ -39,6 +59,8 @@ form.addEventListener("submit", e => {
 	ul.appendChild(newTodo);
 
 	todos.push({ task: e.target[0].value, isCompleted: false });
+
+	updateProgress(selectAll(".todoText"));
 
 	localStorage.setItem("todos", JSON.stringify(todos));
 
@@ -57,6 +79,8 @@ ul.addEventListener("click", e => {
 				todos[key].isCompleted = !todos[key].isCompleted;
 			}
 		}
+
+		updateProgress(selectAll(".todoText"));
 
 		localStorage.setItem("todos", JSON.stringify(todos));
 	}
@@ -79,5 +103,7 @@ ul.addEventListener("click", e => {
 		localStorage.setItem("todos", JSON.stringify(modifiedTodos));
 
 		todo.remove();
+
+		updateProgress(selectAll(".todoText"));
 	}
 });

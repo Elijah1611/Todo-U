@@ -81,15 +81,22 @@ li button:hover {
 }
 
 .addBtn {
-	width: 80px;
-	height: 80px;
-	font-size: 3rem;
+	width: 60px;
+	height: 60px;
+	font-size: 2rem;
 	color: white;
 	background: linear-gradient(45deg, #8e2de2, #4a00e0);
 	border: none;
 	border-radius: 50%;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	transition: all 0.3s;
+}
+@media screen and (min-width: 700px) {
+	.addBtn {
+		width: 80px;
+		height: 80px;
+		font-size: 3rem;
+	}
 }
 
 .addBtn:hover {
@@ -98,8 +105,12 @@ li button:hover {
 	background: linear-gradient(45deg, #9338e2, #540fdf);
 }
 
+.addBtn:focus {
+	outline: none;
+}
+
 .taskInput {
-	width: 500px;
+	width: 200px;
 	height: 50px;
 	border: none;
 	margin-right: 20px;
@@ -110,8 +121,41 @@ li button:hover {
 	font-weight: bold;
 	color: #6a3093;
 }
+@media screen and (min-width: 600px) {
+	.taskInput {
+		width: 500px;
+	}
+}
 
 .taskInput:focus {
 	border: none;
 	outline: none;
+}
+
+.progress {
+	margin: 0 auto;
+	width: 300px;
+	background-color: white;
+	border-radius: 20px;
+}
+@media screen and (min-width: 600px) {
+	.progress {
+		width: 500px;
+	}
+}
+
+.bar {
+	width: 0%;
+	height: 30px;
+	background: linear-gradient(90deg, #6a3093, #9733ee);
+	border-radius: 20px;
+	transition: all 0.3s;
+}
+
+.progressTracker {
+	text-align: center;
+	color: white;
+	margin: 20px 0;
+	font-size: 2rem;
+	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.46);
 }
