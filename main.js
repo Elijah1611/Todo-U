@@ -4,7 +4,7 @@ const selectAll = selector => document.querySelectorAll(selector);
 const form = select("form");
 const ul = select("ul");
 
-const todos = JSON.parse(localStorage.getItem("todos"));
+let todos = JSON.parse(localStorage.getItem("todos"));
 
 // RENDER TODOS
 
@@ -61,7 +61,7 @@ ul.addEventListener("click", e => {
 
 // REMOVE TODO
 
-const addTodo = todo => {
+const removeTodo = todo => {
 	const todoText = todo.innerText.slice(0, todo.innerText.length - 1);
 	return todos.filter(t => t.task !== todoText);
 };
@@ -70,8 +70,9 @@ ul.addEventListener("click", e => {
 	if (e.target.tagName === "BUTTON") {
 		const todo = e.target.parentElement;
 
-		const modifiedTodos = addTodo(todo);
+		const modifiedTodos = removeTodo(todo);
 
+		todos = modifiedTodos;
 		localStorage.setItem("todos", JSON.stringify(modifiedTodos));
 
 		todo.remove();
