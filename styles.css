@@ -10,7 +10,6 @@ html {
 }
 
 body {
-	/* background: linear-gradient(45deg, #ece9e6, #ffffff); */
 	background-color: #daafff;
 	height: 100vh;
 	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -36,6 +35,7 @@ ul {
 	padding-top: 40px;
 	margin-bottom: 50px;
 	background: white;
+	transition: background 5s;
 }
 
 li {
@@ -72,8 +72,12 @@ li button:hover {
 	background: linear-gradient(180deg, #ed213a, #ca3a2a);
 }
 
-.completed {
+.completedText {
 	text-decoration: line-through;
+}
+
+.completedItem {
+	background: linear-gradient(45deg, #232526, #414345);
 }
 
 .todoText {
@@ -123,7 +127,7 @@ li button:hover {
 }
 @media screen and (min-width: 600px) {
 	.taskInput {
-		width: 500px;
+		width: 550px;
 	}
 }
 

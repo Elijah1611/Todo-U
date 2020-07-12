@@ -19,7 +19,8 @@ const makeTodoElement = (task, completed) => {
 	newTodo.appendChild(newDeleteBtn);
 
 	if (completed) {
-		todoTextSpan.classList.add("completed");
+		todoTextSpan.classList.add("completedText");
+		newTodo.classList.add("completedItem");
 	}
 
 	return newTodo;
@@ -39,7 +40,7 @@ const progressTracker = select(".progressTracker");
 const updateProgress = todoNodeList => {
 	let numOfCompleted = 0;
 	for (const todo of todoNodeList) {
-		if (todo.classList.contains("completed")) numOfCompleted += 1;
+		if (todo.classList.contains("completedText")) numOfCompleted += 1;
 	}
 	const percent = numOfCompleted / todoNodeList.length;
 	const progressStatus = percent * 100;
@@ -71,7 +72,8 @@ form.addEventListener("submit", e => {
 
 ul.addEventListener("click", e => {
 	if (e.target.tagName === "SPAN") {
-		e.target.classList.toggle("completed");
+		e.target.classList.toggle("completedText");
+		e.target.parentElement.classList.toggle("completedItem");
 		const todoText = e.target.innerText;
 
 		for (const key in todos) {
